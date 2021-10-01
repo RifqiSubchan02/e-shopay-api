@@ -1,15 +1,23 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('line_items', {
     lite_prod_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      references: {
+        model: 'products',
+        key: 'prod_id'
+      }
     },
     lite_cart_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      references: {
+        model: 'carts',
+        key: 'cart_id'
+      }
     },
     lite_qty: {
       type: DataTypes.INTEGER,

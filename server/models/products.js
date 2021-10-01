@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('products', {
     prod_id: {
       autoIncrement: true,
@@ -46,6 +46,10 @@ module.exports = function(sequelize, DataTypes) {
         model: 'categories',
         key: 'cate_id'
       }
+    },
+    prod_stock: {
+      type: DataTypes.INTEGER,
+      allowNull: true
     }
   }, {
     sequelize,
